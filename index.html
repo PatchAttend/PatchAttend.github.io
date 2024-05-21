@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <meta name="description" content="DESCRIPTION META TAG">
+    <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
+    <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG" />
+    <meta property="og:url" content="URL OF THE WEBSITE" />
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+    <meta property="og:image" content="static/images/banner_image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+
+    <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+    <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+    <meta name="twitter:image" content="static/images/banner_image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Keywords for your paper to be indexed by-->
+    <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>Attend to the Right Patches for Temporally Consistent Video Editing</title>
+    <link rel="icon" type="image/x-icon" href="static/images/github.png">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">Attend to the Right Patches for Temporally Consistent Video Editing</h1>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                              <!-- PDF Link. -->
+                              <span class="link-block">
+                                <a href=""
+                                   class="external-link button is-normal is-rounded is-dark">
+                                  <span class="icon">
+                                      <i class="fas fa-file-pdf"></i>
+                                  </span>
+                                  <span>Paper(Under review)</span>
+                                </a>
+                              </span>
+                              <span class="link-block">
+                                <a href=""
+                                   class="external-link button is-normal is-rounded is-dark">
+                                  <span class="icon">
+                                      <i class="ai ai-arxiv"></i>
+                                  </span>
+                                  <span>arXiv(Coming Soon)</span>
+                                </a>
+                              </span>
+                              <!-- Video Link.
+                              <span class="link-block">
+                                <a href=""
+                                   class="external-link button is-normal is-rounded is-dark">
+                                  <span class="icon">
+                                      <i class="fab fa-youtube"></i>
+                                  </span>
+                                  <span>Video</span>
+                                </a>
+                              </span> -->
+                              <!-- Code Link. -->
+                              <span class="link-block">
+                                <a href=""
+                                   class="external-link button is-normal is-rounded is-dark">
+                                  <span class="icon">
+                                      <i class="fab fa-github"></i>
+                                  </span>
+                                  <span>Code(Coming Soon)</span>
+                                  </a>
+                              <!-- </span> -->
+                              <!-- Dataset Link.
+                              <span class="link-block">
+                                <a href=""
+                                   class="external-link button is-normal is-rounded is-dark">
+                                  <span class="icon">
+                                      <i class="far fa-images"></i>
+                                  </span>
+                                  <span>Data</span>
+                                  </a> -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Teaser video-->
+    <!-- <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <video preload="auto" poster="" id="tree" autoplay controls muted loop width="600px" outline="0px"> -->
+                    <!-- Your video -->
+                    <!-- <source src="videos/teaser.mp4" type="video/mp4"> -->
+                    <!-- <source src="final_very_compressed.mp4" -->
+
+                <!-- </video> -->
+                <!-- <h2 class="subtitle has-text-centered"> 
+      </h2> -->
+            <!-- </div> -->
+        <!-- </div> -->
+    <!-- </section> -->
+    <!-- End teaser video -->
+
+    <!-- Paper abstract -->
+    <section class="section hero is-light">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                      <p>
+                        Prior research using text-to-image (TTI) diffusion models has effectively edited videos to 
+                        match text descriptions while preserving the visual setup with minimal computing. 
+                        Yet, these methods struggle with videos that have significant motion or camera angle changes. 
+                        They often fail to capture the original video's motion accurately or to restore detailed background scenes. 
+                      </p>
+                      <p>
+                        Our paper introduces <em>PatchAttend</em>, a TTI-based framework that edits videos in a one-shot tuning manner, 
+                        guided by text for real-world videos. <em>PatchAttend</em> maintains motion detail from the source by 
+                        linking each video frame's 2D pixels to their corresponding 3D points. We use novel attention mechanisms 
+                        that factor in tracking results to enhance temporal coherence. 
+                        Our tuning techniques preserve the ability of pre-trained models and avoid the problem of overfitting. 
+                        We perform cross-attention manipulation for precise and effective editing. 
+                      </p>
+                      <p>
+                        Our comprehensive experiments show the superiority of <em>PatchAttend</em> in temporal consistency, editing accuracy, 
+                        and in restoring unedited parts of the video. We will release our code soon.
+                      </p>      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End paper abstract -->
+
+    <!-- Paper poster -->
+    <!-- <section class="hero is-small">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-">
+                        <h2 class="title is-3">Method</h2>
+                        <div class="content has-text-justified">
+                            <div>
+                              <td colspan="3">
+                                <img src="pics/framework.png" alt="" width="1000" />
+                              </td>
+                            </div>
+                            <div class="content has-text-justified">
+                            </div>
+                        </div>
+                    </div>
+    </section> -->
+
+
+    <!--End paper method -->
+
+    <!-- Video grid -->
+    <section class="hero is-light">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered has-text-centered">
+                    <div class="column"> 
+                       <h2 class="title is-3">PatchAttend Editing Results</h2>
+                        <div class="content has-text-justified" style="align-content: center;">
+                            <td colspan="3">
+                                <p style="margin-top: -12px;text-align: center;">
+                                  All video examples consist of eight frames. Left: Input Video; Right: Edited Video.
+                                </p>
+                            </td>
+                            <div class="result-item" style="width: 600px; display: block; margin-left: auto; margin-right: auto;">
+                                <div class="video-wrapper">
+                                    <video preload="auto" poster="" autoplay controls muted loop >
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/single-sample/blackswan/Origin.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper">
+                                    </caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop >
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/single-sample/blackswan/Ours.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div style="text-align: center; font-size: xx-large;">To <text class="prompt">"Metal Swan"</text>
+                                </div>
+                            </div>
+
+                            <div class="result-item" style="width: 600px; display: block; margin-left: auto; margin-right: auto;">
+                                <!-- Add caption element for each video preload="auto"-->
+                                <div class="video-wrapper">
+                                    <video preload="auto" poster="" autoplay controls muted loop">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/single-sample/car-shadow/Origin.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper">
+                                    <video preload="auto" poster="" autoplay controls muted loop>
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/single-sample/car-shadow/Ours.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div style="text-align: center; font-size: xx-large;">To <text class="prompt">"Blue"</text>
+                                </div>
+                            </div>
+
+                            <div class="result-item" style="width: 600px; display: block; margin-left: auto; margin-right: auto;">
+                                <!-- Add caption element for each video preload="auto"-->
+                                <div class="video-wrapper">
+                                    <video preload="auto" poster="" autoplay controls muted loop">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/single-sample/car-turn/Origin.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper">
+                                    <video preload="auto" poster="" autoplay controls muted loop>
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/single-sample/car-turn/Ours.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div style="text-align: center; font-size: xx-large;">To <text class="prompt">"Mini Cooper"</text>
+                                </div>
+                            </div>
+
+                            <div class="result-item" style="width: 600px; display: block; margin-left: auto; margin-right: auto;">
+                                <!-- Add caption element for each video preload="auto"-->
+                                <div class="video-wrapper">
+                                    <video preload="auto" poster="" autoplay controls muted loop">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/single-sample/dog/Origin.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper">
+                                    <video preload="auto" poster="" autoplay controls muted loop>
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/single-sample/dog/Ours.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div style="text-align: center; font-size: xx-large;">To <text class="prompt">"Tiger"</text>
+                                </div>
+                            </div>
+
+                            <div class="result-item" style="width: 600px; display: block; margin-left: auto; margin-right: auto;">
+                                <!-- Add caption element for each video preload="auto"-->
+                                <div class="video-wrapper">
+                                    <video preload="auto" poster="" autoplay controls muted loop">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/single-sample/drift-straight/Origin.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper">
+                                    <video preload="auto" poster="" autoplay controls muted loop>
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/single-sample/drift-straight/Ours.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div style="text-align: center; font-size: xx-large;">To <text class="prompt">"Ferrari"</text>
+                                </div>
+                            </div>
+
+                            <div class="result-item" style="width: 600px; display: block; margin-left: auto; margin-right: auto;">
+                                <!-- Add caption element for each video preload="auto"-->
+                                <div class="video-wrapper">
+                                    <video preload="auto" poster="" autoplay controls muted loop">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/single-sample/mallard-water/Origin.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper">
+                                    <video preload="auto" poster="" autoplay controls muted loop>
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/single-sample/mallard-water/Ours.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div style="text-align: center; font-size: xx-large;">To <text class="prompt">"Chicken"</text>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- End video preload="auto"grid -->
+
+    <section class="hero is-small is-light">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered has-text-centered">
+                    <div class="column custom-width">
+                        <h2 class="title is-3">Comparisons</h2>
+
+                        <div id="results-carousel" class="carousel results-carousel" style="align-content: center">
+                            <div class="item item-video">
+                                <!-- Add caption element for each video preload="auto"-->
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Input video</caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/blackswan/Origin.mp4" type="video/mp4">
+                                    </video>
+
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Ours </caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/blackswan/Ours.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Tune-A-Video <a href="#ref-tav">[1]</a></caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/blackswan/TAV.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>FateZero <a href="#ref-fz">[2]</a><br>(+Tune-A-Video)</caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/blackswan/FateZero.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>VideoP2P <a href="#ref-vp2p">[3]</a></caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/blackswan/VideoP2P.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                </br>
+                                <div style="font-size: xx-large;">To <text class="prompt">"Crochet Swan"</text></div>
+                            </div>
+
+                            <div class="item item-video">
+                                <!-- Add caption element for each video preload="auto"-->
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Input video</caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/car-roundabout/Origin.mp4" type="video/mp4">
+                                    </video>
+
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Ours </caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/car-roundabout/Ours.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Tune-A-Video <a href="#ref-tav">[1]</a></caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/car-roundabout/TAV.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>FateZero <a href="#ref-fz">[2]</a><br>(+Tune-A-Video)</caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/car-roundabout/FateZero.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>VideoP2P <a href="#ref-vp2p">[3]</a></caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/car-roundabout/VideoP2P.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                </br>
+                                <div style="font-size: xx-large;">To <text class="prompt">"Red Car"</text></div>
+                            </div>
+
+                            <div class="item item-video">
+                                <!-- Add caption element for each video preload="auto"-->
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Input video</caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/car-turn/Origin.mp4" type="video/mp4">
+                                    </video>
+
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Ours </caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/car-turn/Ours.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Tune-A-Video <a href="#ref-tav">[1]</a></caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/car-turn/TAV.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>FateZero <a href="#ref-fz">[2]</a><br>(+Tune-A-Video)</caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/car-turn/FateZero.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>VideoP2P <a href="#ref-vp2p">[3]</a></caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/car-turn/VideoP2P.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                </br>
+                                <div style="font-size: xx-large;">To <text class="prompt">"Red Car"</text></div>
+                            </div>
+
+                            <div class="item item-video">
+                                <!-- Add caption element for each video preload="auto"-->
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Input video</caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/dog/Origin.mp4" type="video/mp4">
+                                    </video>
+
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Ours </caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/dog/Ours.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Tune-A-Video <a href="#ref-tav">[1]</a></caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/dog/TAV.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>FateZero <a href="#ref-fz">[2]</a><br>(+Tune-A-Video)</caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/dog/FateZero.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>VideoP2P <a href="#ref-vp2p">[3]</a></caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/dog/VideoP2P.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                </br>
+                                <div style="font-size: xx-large;">To <text class="prompt">"Cat"</text></div>
+                            </div>
+
+                            <div class="item item-video">
+                                <!-- Add caption element for each video preload="auto"-->
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Input video</caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/goat/Origin.mp4" type="video/mp4">
+                                    </video>
+
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Ours </caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/goat/Ours.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Tune-A-Video <a href="#ref-tav">[1]</a></caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/goat/TAV.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>FateZero <a href="#ref-fz">[2]</a><br>(+Tune-A-Video)</caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/goat/FateZero.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>VideoP2P <a href="#ref-vp2p">[3]</a></caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/goat/VideoP2P.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                </br>
+                                <div style="font-size: xx-large;">To <text class="prompt">"Horse"</text></div>
+                            </div>
+
+                            <div class="item item-video">
+                                <!-- Add caption element for each video preload="auto"-->
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Input video</caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/hike/Origin.mp4" type="video/mp4">
+                                    </video>
+
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Ours </caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/hike/Ours.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Tune-A-Video <a href="#ref-tav">[1]</a></caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/hike/TAV.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>FateZero <a href="#ref-fz">[2]</a><br>(+Tune-A-Video)</caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/hike/FateZero.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>VideoP2P <a href="#ref-vp2p">[3]</a></caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/hike/VideoP2P.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                </br>
+                                <div style="font-size: xx-large;">To <text class="prompt">"Fire-Fighter"</text></div>
+                            </div>
+
+                            <div class="item item-video">
+                                <!-- Add caption element for each video preload="auto"-->
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Input video</caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/motocross-bumps/Origin.mp4" type="video/mp4">
+                                    </video>
+
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Ours </caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/motocross-bumps/Ours.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Tune-A-Video <a href="#ref-tav">[1]</a></caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/motocross-bumps/TAV.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>FateZero <a href="#ref-fz">[2]</a><br>(+Tune-A-Video)</caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/motocross-bumps/FateZero.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>VideoP2P <a href="#ref-vp2p">[3]</a></caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/motocross-bumps/VideoP2P.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                </br>
+                                <div style="font-size: xx-large;">To <text class="prompt">"Robotic Rider"</text></div>
+                            </div>
+
+                            <div class="item item-video">
+                                <!-- Add caption element for each video preload="auto"-->
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Input video</caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/swing/Origin.mp4" type="video/mp4">
+                                    </video>
+
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Ours </caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/swing/Ours.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>Tune-A-Video <a href="#ref-tav">[1]</a></caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/swing/TAV.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>FateZero <a href="#ref-fz">[2]</a><br>(+Tune-A-Video)</caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/swing/FateZero.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-wrapper" style="width: 200px;">
+                                    <caption>VideoP2P <a href="#ref-vp2p">[3]</a></caption>
+                                    <video preload="auto" poster="" autoplay controls muted loop
+                                        width="200px">
+                                        <!-- Your video preload="auto"file here -->
+                                        <source src="videos/comparison/swing/VideoP2P.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                </br>
+                                <div style="font-size: xx-large;">To <text class="prompt">"Lego Woman"</text></div>
+                            </div>
+
+
+                            
+                        </div>              
+                    </div>
+                </div>
+    </section>
+
+    <!--BibTex citation -->
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>TBA</code></pre>
+        </div>
+    </section>
+    <!--End BibTex citation -->
+
+    <section class="hero is-small">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered has-text-centered">
+                    <div class="column custom-width">
+                        <!-- <h2 class="title is-3"></h2> -->
+                        <div class="content has-text-justified">
+                            <p>
+                                <a name="ref-tav" id="ref-tav"></a>
+                                [1] Jay Zhangjie Wu, et al. “Tune-A-Video: One-shot tuning of image diffusion models for text-to-video generation”. In ICCV, 2023.
+                                </br>
+                                <a name="ref-fz" id="ref-fz"></a>
+                                [2] QI, Chenyang, et al. “FateZero: Fusing Attentions for Zero-shot Text-based Video Editing”. In ICCV, 2023.
+                                </br>
+                                <a name="ref-vp2p" id="ref-vp2p"></a>
+                                [3] Shaoteng Liu, et al. “Video-P2P: Video Editing with Cross-attention Control”. Preprint, arXiv:2303.04761.
+                                </br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-8">
+                            <div class="content">
+                                <p>
+                                    This page was adapted from
+                                    <a href="https://github.com/vidtome-diffusion/vidtome-diffusion.github.io"
+                                        target="_blank">VidToMe Project Page
+                                    </a>
+                                    built using the
+                                    <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                                        target="_blank">Academic Project Page Template
+                                    </a>.
+                                    You are free to borrow the of this website, we just ask that you link back to this
+                                    page in the footer. <br> This website is licensed under a
+                                    <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"
+                                        target="_blank">Creative
+                                        Commons Attribution-ShareAlike 4.0 International License
+                                    </a>.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- Statcounter tracking code -->
+
+            <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+            <!-- End of Statcounter Code -->
+            <script>
+                window.addEventListener('DOMContentLoaded', (event) => {
+                    const videoWrappers = document.querySelectorAll('.video-wrapper');
+
+                    videoWrappers.forEach(wrapper => {
+                        const defaultVideo = wrapper.querySelector('.default-video');
+                        const aspectRatio = defaultVideo.videoWidth / defaultVideo.videoHeight;
+                        const height = wrapper.offsetWidth / aspectRatio;
+
+                        wrapper.style.height = `${height}px`;
+
+                        wrapper.addEventListener('mouseenter', () => {
+                            defaultVideo.pause();
+                            hoverVideo.play();
+                        });
+
+                        wrapper.addEventListener('mouseleave', () => {
+                            defaultVideo.play();
+                            hoverVideo.pause();
+                        });
+                    });
+                });
+                $(document).ready(function () {
+                    var carouselItems = $('.carousel .item');
+                    var numItems = carouselItems.length;
+                    var numVideos = 5;
+                    var currentIndex = 0;
+
+                    $('.carousel').on('click', function () {
+                        currentIndex++;
+                        if (currentIndex + numVideos <= numItems) {
+                            carouselItems.removeClass('active');
+                            carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
+                        } else {
+                            currentIndex = 0;
+                            carouselItems.removeClass('active');
+                            carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
+                        }
+                    });
+
+                    carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
+                });
+            </script>
+</body>
+
+</html>
